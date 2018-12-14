@@ -1,0 +1,6 @@
+// There should be no CSS written in any of these imported files
+// These files should only carry variables and mixins that are used by component-level SCSS files
+
+@import "variables/typography";
+
+@import "mixins/media-query";
