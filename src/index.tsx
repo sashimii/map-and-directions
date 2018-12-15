@@ -4,27 +4,32 @@ import './scss/global.scss';
 
 import { App } from './App';
 
-import GooglePlaces from './lib/GooglePlaces';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
-const places = new GooglePlaces('<API_KEY>');
+// import GooglePlaces from './lib/GooglePlaces';
 
-const GoogleMapsAPI: any = places.getGoogleMapsAPI();
+// const places = new GooglePlaces('');
 
-GoogleMapsAPI.then(service => {
-  const autocompleteService: any = new service.maps.places.AutocompleteService();
-  console.log('SERVICE', autocompleteService); // tslint:disable-line
+// const GoogleMapsAPI: any = places.getGoogleMapsAPI();
 
-  autocompleteService.getPlacePredictions(
-    {
-      input: 'inno',
-    },
-    (arr) => { console.log('ARRAY', arr)}  // tslint:disable-line
-  );
-});
+// GoogleMapsAPI.then(service => {
+//   const autocompleteService: any = new service.maps.places.AutocompleteService();
+//   console.log('SERVICE', autocompleteService); // tslint:disable-line
+
+//   autocompleteService.getPlacePredictions(
+//     {
+//       input: 'innocent',
+//     },
+//     (arr) => { console.log('ARRAY', arr)}  // tslint:disable-line
+//   );
+// });
 
 const app = () => {
   ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.getElementById('app-container'),
   );
 };

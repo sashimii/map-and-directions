@@ -31,4 +31,13 @@ export default class GooglePlaces {
     return google;
   }
 
+  async getAutocompleteService() {
+    const service: any = await this.getGoogleMapsAPI().then(res => new res.maps.places.AutocompleteService());
+    return service;
+  }
+
+  // async getAutocomplete(proposal) {
+  //   const results: any = await this.getAutocompleteService();
+  // }
+
 }
