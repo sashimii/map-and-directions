@@ -1,6 +1,6 @@
 import ScriptManager from './ScriptManager';
 
-const API_KEY = `AIzaSyBrNsDqNvWcz4dTEsXWYl3dQWQRJ59D1IE`;
+const API_KEY = ``;
 
 class GooglePlaces {
 

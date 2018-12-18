@@ -8,7 +8,26 @@ export interface PredictionsStateType {
   [Location.destination]?: Array<any>;
 }
 
+export interface LocationsStateType {
+  [Location.starting]?: string;
+  [Location.destination]?: string;
+}
+
+export interface DirectionsStateType {
+  path?: Array<Array<string>>;
+  totalDistance?: number;
+  totalTime?: number;
+}
+
+export interface ResourceRetrievalStatusStateType {
+  status?: string;
+  error?: string;
+}
+
 // Keep at end of file
 export interface GlobalState {
   predictions: PredictionsStateType;
+  locations: LocationsStateType;
+  directions: DirectionsStateType;
+  resourceRetrievalStatus: ResourceRetrievalStatusStateType;
 }

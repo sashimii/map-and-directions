@@ -1,5 +1,5 @@
 import { delay } from 'redux-saga';
-import { call, put, takeLatest, throttle } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { fetchAutocomplete, updatePredictions } from '../actions/autocomplete';
 
 import { fetchPlacePredictions, GooglePlacesAPI } from '../../lib/GooglePlaces';
@@ -7,7 +7,7 @@ import { fetchPlacePredictions, GooglePlacesAPI } from '../../lib/GooglePlaces';
 // Throttle Input & Override with Latest Search Options
 
 export function* autocompleteSaga() {
-  yield takeLatest(fetchAutocomplete, handleAutocomplete);
+  yield all([takeLatest(fetchAutocomplete, handleAutocomplete)]);
 }
 
 function* handleAutocomplete(action) {

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --env.NODE_ENV=development --hot --inline --colors",
+    "start": "webpack-dev-server --env.NODE_ENV=development --hot --inline --colors --port=3000",
     "build": "webpack --env.NODE_ENV=production --config webpack.config.js --watch"
   },
   "author": "Sushil Tailor",

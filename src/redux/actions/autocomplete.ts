@@ -1,6 +1,3 @@
-import { delay } from 'redux-saga';
-import { call, put, takeLatest, throttle } from 'redux-saga/effects';
-
 import { Location } from '../types/GlobalState';
 import { actionTypes } from './actionTypes';
 
@@ -25,7 +22,3 @@ export const fetchAutocomplete = (locationType, query) => {
     query,
   };
 };
-
-// export const fetchAutocomplete = proposal => (dispatch): void => {
-//   new GooglePlaces().fetchPlacePredictions(proposal).then(dispatch);
-// };

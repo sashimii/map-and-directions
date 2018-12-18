@@ -1,3 +1,4 @@
+import { actionTypes } from '../actions/actionTypes';
 import { PredictionsStateType } from '../types/GlobalState';
 
 export const predictions = (
@@ -5,9 +6,9 @@ export const predictions = (
   { type, formInputType, predictions },
 ): PredictionsStateType => {
   switch (type) {
-    case 'UPDATE_PREDICTIONS':
+    case actionTypes.UPDATE_PREDICTIONS:
       return Object.assign({}, state, { [formInputType]: predictions });
-    case 'CLEAR_PREDICTIONS':
+    case actionTypes.CLEAR_PREDICTIONS:
       return {};
     default:
       return state;
