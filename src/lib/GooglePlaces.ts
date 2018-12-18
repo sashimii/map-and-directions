@@ -1,10 +1,12 @@
 import ScriptManager from './ScriptManager';
 
-export default class GooglePlaces {
+const API_KEY = `AIzaSyBrNsDqNvWcz4dTEsXWYl3dQWQRJ59D1IE`;
+
+class GooglePlaces {
 
   scriptManager: any;
 
-  constructor(apiKey) {
+  constructor(apiKey: string = API_KEY) {
     this.scriptManager = new ScriptManager().addScriptUrl(`https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`);
   }
 
@@ -36,8 +38,21 @@ export default class GooglePlaces {
     return service;
   }
 
-  // async getAutocomplete(proposal) {
-  //   const results: any = await this.getAutocompleteService();
-  // }
+  async fetchPlacePredictions(input: string) {
+    const predictions: any =
+      await this.getAutocompleteService()
+                .then(service => {
+                  return new Promise((resolve, reject) => {
+                    service.getPlacePredictions({ input }, resolve);
+                  });
+                })
+                .then(predictions => predictions);
+
+    return predictions;
+  }
 
 }
+
+export const GooglePlacesAPI = new GooglePlaces();
+
+export const fetchPlacePredictions = (input: string) => input && GooglePlacesAPI.fetchPlacePredictions(input);

@@ -1,0 +1,26 @@
+@import "../scss/framework";
+
+$block: "auto-dropdown";
+
+.#{$block} {
+  top: 0;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+  &__list {
+    font-weight: 300;
+    font-size: 1rem;
+
+    &--item {
+      border: 1px solid rgb(221, 210, 210);
+      background: #fafafa;
+      padding: 0.5rem 1rem;
+      &:hover {
+        background: lighten(#fafafa, 50%);
+      }
+    }
+  }
+
+}

@@ -9,7 +9,9 @@ import store from './redux/store';
 
 // import GooglePlaces from './lib/GooglePlaces';
 
-// const places = new GooglePlaces('');
+// const places = new GooglePlaces();
+
+// places.fetchPlacePredictions('Indian Foodl').then(console.log); // tslint:disable-line
 
 // const GoogleMapsAPI: any = places.getGoogleMapsAPI();
 

@@ -1,4 +1,16 @@
-import { createStore } from 'redux';
-import reducers from './reducers';
+import { applyMiddleware, createStore } from 'redux';
+import createSagaMiddleware from 'redux-saga';
 
-export default createStore(reducers);
+import reducers from './reducers';
+import { autocompleteSaga } from './sagas/autocomplete';
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  reducers,
+  applyMiddleware(sagaMiddleware),
+);
+
+sagaMiddleware.run(autocompleteSaga);
+
+export default store;

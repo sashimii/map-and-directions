@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux';
 
-import GlobalState from '../../interfaces/GlobalState';
+import { GlobalState } from '../types/GlobalState';
 
-export default combineReducers<GlobalState>({});
+import { predictions } from './predictions';
+
+export default combineReducers<GlobalState>({
+  predictions,
+});

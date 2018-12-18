@@ -1,19 +1,17 @@
 import * as React from 'react';
+import LocationFormInput from './containers/LocationFormInputs';
+import { Location } from './redux/types/GlobalState';
 import { TextForm } from './ui/TextForm';
 
 interface AppProps {}
 
 export const App: React.SFC<AppProps> = ({}) => (
   <>
-    <TextForm
-      label="Starting Location"
-      name="start"
-      handleChange={e => console.log(e.target.value) } // tslint:disable-line
+    <LocationFormInput
+      locationType={Location.starting}
     />
-    <TextForm
-      label="Destination"
-      name="destination"
-      handleChange={e => console.log(e.target.value) } // tslint:disable-line
+    <LocationFormInput
+      locationType={Location.destination}
     />
   </>
 );
