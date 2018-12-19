@@ -62,6 +62,7 @@ export class GoogleMap extends React.Component<any, GoogleMapState> {
           strokeOpacity: 1,
         });
 
+        this.polyline.setMap(null); // Clear Existing Polylines
         this.polyline.setMap(this.googleMap);
 
       });
