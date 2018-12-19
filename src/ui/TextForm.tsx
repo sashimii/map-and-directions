@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { AutoDropdown } from './AutoDropdown';
 import './TextForm.scss';
 
 interface TextFormProps {

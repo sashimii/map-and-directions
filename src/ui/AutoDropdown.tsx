@@ -4,7 +4,7 @@ import './AutoDropdown.scss';
 
 interface AutoDropdownProps {
   list: Array<any>;
-  handleSelect: Function;
+  handleSelect(item: string): void;
 }
 
 export const AutoDropdown: React.SFC<AutoDropdownProps> = ({ list, handleSelect }) => {

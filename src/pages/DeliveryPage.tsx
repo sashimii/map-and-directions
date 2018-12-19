@@ -1,4 +1,3 @@
-import GoogleMapReact from 'google-map-react';
 import * as React from 'react';
 
 import GoogleMap from '../containers/GoogleMap';

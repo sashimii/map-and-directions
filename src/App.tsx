@@ -3,8 +3,4 @@ import { DeliveryPage } from './pages/DeliveryPage';
 
 interface AppProps {}
 
-export const App: React.SFC<AppProps> = ({}) => (
-  <>
-    <DeliveryPage />
-  </>
-);
+export const App: React.SFC<AppProps> = () => <DeliveryPage />;

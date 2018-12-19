@@ -7,7 +7,7 @@ import LocationFormInput from './LocationFormInputs';
 
 import { actionTypes } from '../redux/actions/actionTypes';
 import { clearPredictions } from '../redux/actions/autocomplete';
-import { clearLocationFieldValue, updateLocationFieldValue } from '../redux/actions/location';
+import { clearLocationFieldValue } from '../redux/actions/location';
 import { clearDeliveryRouteInformation, clearStatuses, getDrivingRoute } from '../redux/actions/submission';
 import { Button } from '../ui/Button';
 import { Status } from '../ui/Status';

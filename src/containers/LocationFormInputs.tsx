@@ -20,22 +20,20 @@ interface LocationFormInputProps {
 export const LocationFormInput: React.SFC<LocationFormInputProps> = ({ locationType, predictions, location, updatePrediction, updateLocation }) => {
 
   return (
-    <>
-      <TextForm
-        label={`${locationType.charAt(0).toUpperCase() + locationType.slice(1)} Location`}
-        name={locationType}
-        value={location}
-        handleChange={e => {
-          updateLocation(e.target.value);
-          updatePrediction(e.target.value);
-        }}
-      >
-        <AutoDropdown
-          list={ predictions[locationType] && predictions[locationType].map(prediction => prediction.description) }
-          handleSelect={item => updateLocation(item)}
-        />
-      </TextForm>
-    </>
+    <TextForm
+      label={`${locationType.charAt(0).toUpperCase() + locationType.slice(1)} Location`}
+      name={locationType}
+      value={location}
+      handleChange={e => {
+        updateLocation(e.target.value);
+        updatePrediction(e.target.value);
+      }}
+    >
+      <AutoDropdown
+        list={ predictions[locationType] && predictions[locationType].map(prediction => prediction.description) }
+        handleSelect={item => updateLocation(item)}
+      />
+    </TextForm>
   );
 };
 

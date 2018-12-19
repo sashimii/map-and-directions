@@ -1,6 +1,6 @@
 import ScriptManager from './ScriptManager';
 
-const API_KEY = ``;
+const API_KEY = ``; // Google Maps Javascript API Key
 
 class GoogleMaps {
 
