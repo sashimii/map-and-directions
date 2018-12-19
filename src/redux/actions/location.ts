@@ -8,3 +8,9 @@ export const updateLocationFieldValue = (locationType: Location, value: string) 
     value,
   };
 };
+
+export const clearLocationFieldValue = () => {
+  return {
+    type: actionTypes.CLEAR_LOCATION_FIELD_VALUE,
+  };
+};

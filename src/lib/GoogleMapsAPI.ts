@@ -2,7 +2,7 @@ import ScriptManager from './ScriptManager';
 
 const API_KEY = ``;
 
-class GooglePlaces {
+class GoogleMaps {
 
   scriptManager: any;
 
@@ -33,6 +33,11 @@ class GooglePlaces {
     return google;
   }
 
+  async getMap() {
+    const map: any = await this.getGoogleMapsAPI().then(res => res.maps);
+    return map;
+  }
+
   async getAutocompleteService() {
     const service: any = await this.getGoogleMapsAPI().then(res => new res.maps.places.AutocompleteService());
     return service;
@@ -53,6 +58,8 @@ class GooglePlaces {
 
 }
 
-export const GooglePlacesAPI = new GooglePlaces();
+export const googleMaps = new GoogleMaps();
 
-export const fetchPlacePredictions = (input: string) => input && GooglePlacesAPI.fetchPlacePredictions(input);
+export const fetchPlacePredictions = (input: string) => input && googleMaps.fetchPlacePredictions(input);
+
+export const getMap = () => googleMaps.getMap();

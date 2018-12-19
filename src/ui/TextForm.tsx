@@ -19,6 +19,7 @@ export const TextForm: React.SFC<TextFormProps> = ({ children, label, name, valu
       name={name}
       value={value}
       onChange={handleChange}
+      autoComplete="off"
     />
     { children }
   </div>

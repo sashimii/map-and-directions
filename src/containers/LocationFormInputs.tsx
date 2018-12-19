@@ -51,14 +51,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const { locationType } = ownProps;
   return {
     updatePrediction: (value: string) => {
-      // console.log(value.length); //tslint:disable-line
-      // dispatch(updateLocationFieldValue(locationType, value));
       value.length > 0 ?
           dispatch(fetchAutocomplete(locationType, value))
         : dispatch(clearPredictions());
     },
     updateLocation: (value: string) => {
-      console.log(value); //tslint:disable-line
       dispatch(updateLocationFieldValue(locationType, value));
       dispatch(clearPredictions());
     },

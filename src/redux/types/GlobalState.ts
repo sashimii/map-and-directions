@@ -20,8 +20,11 @@ export interface DirectionsStateType {
 }
 
 export interface ResourceRetrievalStatusStateType {
+  state?: string;
   status?: string;
   error?: string;
+  colour?: string;
+  message?: string;
 }
 
 // Keep at end of file

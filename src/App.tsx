@@ -1,13 +1,10 @@
 import * as React from 'react';
-import LocationFormInput from './containers/LocationFormInputs';
-import SubmissionForm from './containers/SubmissionForm';
-import { Location } from './redux/types/GlobalState';
-import { TextForm } from './ui/TextForm';
+import { DeliveryPage } from './pages/DeliveryPage';
 
 interface AppProps {}
 
 export const App: React.SFC<AppProps> = ({}) => (
   <>
-    <SubmissionForm />
+    <DeliveryPage />
   </>
 );

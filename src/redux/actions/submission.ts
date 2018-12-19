@@ -5,6 +5,12 @@ const API_URI = `http://localhost:8080/route`;
 
 const tokenizeUri = token => `${API_URI}/${token}`;
 
+export const flagRequestMade = () => {
+  return {
+    type: actionTypes.FLAG_REQUEST_MADE,
+  };
+};
+
 export const flagServerError = () => {
   return {
     type: actionTypes.FLAG_SERVER_ERROR,
@@ -41,6 +47,12 @@ export const flagAsSuccess = status => {
   };
 };
 
+export const clearStatuses = () => {
+  return {
+    type: actionTypes.CLEAR_STATUSES,
+  };
+};
+
 export const updateDeliveryRouteInformation = (path, totalDistance, totalTime) => {
   return {
     type: actionTypes.UPDATE_DELIVERY_ROUTE_INFORMATION,
@@ -50,15 +62,18 @@ export const updateDeliveryRouteInformation = (path, totalDistance, totalTime) =
   };
 };
 
+export const clearDeliveryRouteInformation = () => {
+  return {
+    type: actionTypes.CLEAR_DELIVERY_ROUTE_INFORMATION,
+  };
+};
+
 export const postLocations = locations => dispatch => {
   return axios.post(API_URI, locations)
               .then(response => {
-                console.log(response) // tslint:disable-line
-
                 return axios.get(tokenizeUri(response.data.token));
               })
               .catch(e => {
-                console.log(e) // tslint:disable-line
                 dispatch(flagServerError());
               });
 };
@@ -68,7 +83,6 @@ export const getDrivingRoute = (locations, token = '') => dispatch => {
   const handleResponses = response => {
     const {data} = response;
     const {status} = response.data;
-    // console.log(status); // tslint:disable-line
     switch (status) {
       case 'in progress':
         dispatch(flagAsInProgress(status));
@@ -86,6 +100,8 @@ export const getDrivingRoute = (locations, token = '') => dispatch => {
     }
   };
 
+  dispatch(flagRequestMade());
+
   if (token.length > 0) {
     return axios.get(tokenizeUri(token))
                 .then(handleResponses)
@@ -94,10 +110,10 @@ export const getDrivingRoute = (locations, token = '') => dispatch => {
                 });
   } else {
     return postLocations(locations)(dispatch)
-            .then(handleResponses) // tslint:disable-line
+            .then(handleResponses)
             .catch(e => {
               dispatch(flagServerError());
-            }) // tslint:disable-line
+            });
   }
 
 };
