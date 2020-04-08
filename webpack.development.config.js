@@ -68,6 +68,18 @@ module.exports = {
       },
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+      // {
+      //   test: /\.json$/,
+      //   loader: 'json-loader'
+      // },
+      {
         test: /\.s?css$/,
         use: [
           { loader: 'css-hot-loader' },

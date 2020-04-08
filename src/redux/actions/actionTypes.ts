@@ -22,4 +22,7 @@ export enum actionTypes {
   FLAG_SERVER_ERROR = 'FLAG_SERVER_ERROR',
   CLEAR_STATUSES = 'CLEAR_STATUSES',
 
+  // Current Date
+  UPDATE_CURRENT_DATE = 'UPDATE_CURRENT_DATE',
+
 }
